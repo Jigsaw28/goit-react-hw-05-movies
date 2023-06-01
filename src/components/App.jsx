@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout/Layout';
-import Home from 'pages/Home';
-import Movies from 'pages/Movies';
 import { MovieDetails } from './MovieDetails/MovieDetails';
 import { Cast } from './Cast/Cast';
 import { Reviews } from './Reviews/Reviews';
+import { Container } from './App.styled';
+
+const Home = lazy(() => import('pages/Home'));
+const Movies = lazy(() => import('pages/Movies'));
 
 const App = () => {
   return (
-    <div>
+    <Container>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
@@ -20,7 +22,7 @@ const App = () => {
           </Route>
         </Route>
       </Routes>
-    </div>
+    </Container>
   );
 };
 

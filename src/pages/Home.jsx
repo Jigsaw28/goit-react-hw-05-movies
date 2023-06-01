@@ -1,6 +1,7 @@
 import popularFilms from 'API/TheMovieAPI';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { HomeContainer } from './Home.styled';
 
 const Home = () => {
   const [films, setfilms] = useState(null);
@@ -12,7 +13,7 @@ const Home = () => {
   }, []);
 
   return (
-    <>
+    <HomeContainer>
       <h1>Trending today</h1>
       <ul>
         {films &&
@@ -22,7 +23,7 @@ const Home = () => {
             </li>
           ))}
       </ul>
-    </>
+    </HomeContainer>
   );
 };
 
